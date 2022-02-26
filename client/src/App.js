@@ -1,0 +1,50 @@
+import React,{useEffect} from 'react'
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import {getposts} from "./actions/posts.js"
+import Posts from './components/Posts/posts.js';
+import Form from './components/Form/form.js';
+import Signup from './components/Auth/signup.js';
+import Homepage from './components/Homepage.js';
+import  "./App.css"
+import Navbar from './components/navbar.js';
+
+import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+
+
+const App = () =>{
+   const [currId, setcurrId] = useState(null);
+   const [username,setusername] = useState(null);
+   function updateid(id){
+     console.log('hbdh');
+setcurrId(id);
+   }
+    const dispatch = useDispatch();
+    useEffect(() => {
+    dispatch(getposts())
+    
+      
+    }, [dispatch]);
+    useEffect(() => {
+      setusername(localStorage.getItem('usernames'));
+    
+     
+    }, [])
+    
+    
+    return(
+       
+        <BrowserRouter>
+         <Routes>
+       
+       
+        <Route path="/" element={<Homepage token={username} updatedid={updateid} id={currId} />} />
+        <Route path="/signup" element={<Signup/>}/>
+        </Routes>
+
+
+       
+        </BrowserRouter>
+    )
+}
+export default App;
