@@ -5,6 +5,7 @@ import Loading from '../loading/loading';
 
 
 
+
 const  Posts = ({updateId})=> {
   
   var posts = null;
@@ -13,9 +14,9 @@ const  Posts = ({updateId})=> {
     if(posts!==null){
       return (
         <div className="postscontainer" >
-          {posts.map((post)=>{
+          {posts.map((post,i)=>{
           return(
-            <Postcard post={post} updateId={updateId} />
+            <Postcard post={post} updateId={updateId} key={i} />
           )
         })}
     

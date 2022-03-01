@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:5000/posts';
+const url = 'https://yogeshmalkani.herokuapp.com/posts';
 
 export const fetchPosts = () => axios.get(url);
 export const createpost = (newpost) => axios.post(url,newpost);
@@ -9,9 +9,9 @@ export const deletePost = (id) => axios.delete(`${url}/${id}`);
 export const likePost = (id,username) =>{ axios.patch(`${url}/${id}/like`,{username: username})
 
 };
-export const signup = (data) => axios.post('http://localhost:5000/signup',data)
+export const signup = (data) => axios.post('https://yogeshmalkani.herokuapp.com/signup',data)
 .catch((error) => error.response);
-export const login = (data) => axios.post('http://localhost:5000/login',data)
+export const login = (data) => axios.post('https://yogeshmalkani.herokuapp.com/login',data)
 .catch((error) => error.response);
 
 
