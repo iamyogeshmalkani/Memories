@@ -1,12 +1,12 @@
 
 import React from 'react'
 import { useState,useEffect } from 'react';
-import { TextField, Typography, Paper,Card, Button, IconButton, Input, InsertPhotoIcon } from "@material-ui/core";
+import { TextField, Typography,Card, Button, IconButton, Input } from "@material-ui/core";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { useDispatch } from 'react-redux';
-import {createPost} from '../../actions/posts'
+import {createPost} from '../actions/posts'
 import { useSelector } from 'react-redux';
-import { updatePost } from '../../actions/posts';
+import { updatePost } from '../actions/posts';
 
 
 export default function Form(props) {
@@ -59,7 +59,7 @@ export default function Form(props) {
     }
   
     return (
-        <Card  style={{ display: "flex", flexDirection: "column", gap: "0.5rem",maxWidth: "50%",marginTop: "-", float: "right",}} >
+        <Card className="creatememories"  >
             <Typography style={{ margin: "auto",fontFamily: "Sigmar One , cursive" }} variant="h4" component="div" gutterBottom>
                Create Memories
             </Typography>

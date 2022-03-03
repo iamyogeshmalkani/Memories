@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import './login.css'; 
 import EmailIcon from '@mui/icons-material/Email';
-import InputAdornment from '@mui/material/InputAdornment';
 import LockIcon from '@mui/icons-material/Lock';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-
-import IconButton from '@mui/material/IconButton';
-import Box from "@mui/material/Box";
-
-import { Link } from 'react-router-dom';
-import Loginsignupheader from './loginsignupheader';
-
-
-import { color } from '@mui/system';
 import Alert from '@mui/material/Alert';
-import  *  as api from "../../api/index";
-// import {ReactComponent as ReactLogo} from "../../icons/wave.svg";
+import Box from "@mui/material/Box";
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import * as api from "../../api/index";
+import './login.css';
 
 
-import {useDispatch} from "react-redux";
-import { useSelector } from 'react-redux';
+
+
+
 
 export default function Login() {
   const [type,settype] = useState("password");
@@ -30,7 +24,7 @@ export default function Login() {
   const [apierror,setapierror] = useState("");
   const [visiblity,setvisiblity] = useState("hidden");
   const [errorvisibility,seterrorvisibility] = useState("hidden");
-  const dispatch= useDispatch();
+
   // const error = useSelector(state => state.error);
   async  function  loginfn(){
     if(username === "" || password === ""  ){
@@ -52,7 +46,7 @@ export default function Login() {
         localStorage.setItem("usernames",data.data.username);
         window.location.replace("/");
       }
-      if(data.status!=200){
+      if(data.status!==200){
         setapierror(data.data.message);
         seterrorvisibility("visible");
 
@@ -71,7 +65,7 @@ export default function Login() {
   
   }
   function showpassword(){
-    type=="password" ? settype("text") : settype("password");
+    type==="password" ? settype("text") : settype("password");
 
   }
   
@@ -113,7 +107,7 @@ export default function Login() {
           endAdornment: (
             
             <InputAdornment position="end">
-              {password!="" ? <IconButton onClick={()=>{showpassword()}}>
+              {password!=="" ? <IconButton onClick={()=>{showpassword()}}>
               <VisibilityIcon />
 
               </IconButton>:null}

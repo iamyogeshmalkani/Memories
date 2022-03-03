@@ -2,14 +2,13 @@ import React,{useEffect} from 'react'
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import {getposts} from "./actions/posts.js"
-import Posts from './components/Posts/posts.js';
-import Form from './components/Form/form.js';
+
 import Signup from './components/Auth/signup.js';
 import Homepage from './components/Homepage.js';
 import  "./App.css"
-import Navbar from './components/navbar.js';
 
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 const App = () =>{

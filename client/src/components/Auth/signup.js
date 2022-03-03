@@ -1,26 +1,21 @@
-import React, { useState } from "react";
-
-import { Link } from "react-router-dom";
-
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-
-import Button from "@mui/material/Button";
-import InputAdornment from "@mui/material/InputAdornment";
-
-import Email from "@mui/icons-material/Email";
-import { Password, Person, Visibility } from "@mui/icons-material";
 import LockIcon from '@mui/icons-material/Lock';
-import IconButton from '@mui/material/IconButton';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-
 import PersonIcon from '@mui/icons-material/Person';
-import Loginsignupheader from "./loginsignupheader";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import Alert from '@mui/material/Alert';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import * as api from "../../api/index";
 
-import {useDispatch} from "react-redux";
-import { useSelector } from 'react-redux';
-import  *  as api from "../../api/index";
+
+
+
+
+
 
 const Signup = () => {
   const [apierror,setapierror]  = useState("");
@@ -41,7 +36,7 @@ const Signup = () => {
   async function signupfn() {
 
     
-    if( password === "" || confirmpass === "" || username==""){
+    if( password === "" || confirmpass === "" || username===""){
       setfrontenderror("fill all the fields");
       setvisiblity("visible");
       return ;
@@ -84,12 +79,12 @@ const Signup = () => {
   }
 
   function showpassword(str) {
-    if (str == "pass") {
-      type == "password" ? settype("text") : settype("password");
+    if (str === "pass") {
+      type === "password" ? settype("text") : settype("password");
 
     }
     else {
-      typeconfirm == "password" ? settypeconfirm("text") : settypeconfirm("password");
+      typeconfirm === "password" ? settypeconfirm("text") : settypeconfirm("password");
 
     }
 
@@ -179,7 +174,7 @@ const Signup = () => {
           endAdornment: (
 
             <InputAdornment position="end">
-              {password != "" ? <IconButton onClick={() => { showpassword("pass") }}>
+              {password !== "" ? <IconButton onClick={() => { showpassword("pass") }}>
                 <VisibilityIcon />
 
               </IconButton> : null}
@@ -202,7 +197,7 @@ const Signup = () => {
           endAdornment: (
 
             <InputAdornment position="end">
-              {password != "" ? <IconButton onClick={() => { showpassword("confirmpass") }}>
+              {password !== "" ? <IconButton onClick={() => { showpassword("confirmpass") }}>
                 <VisibilityIcon />
 
               </IconButton> : null}

@@ -11,7 +11,7 @@ const  Posts = ({updateId})=> {
   var posts = null;
     posts = useSelector((state)=>state.posts)
     console.log(posts);
-    if(posts!==null){
+    if(posts.length>0){
       return (
         <div className="postscontainer" >
           {posts.map((post,i)=>{
@@ -24,6 +24,7 @@ const  Posts = ({updateId})=> {
       );
     }
     else{
+      console.log("post is coming");
       return(
         <Loading />
       )

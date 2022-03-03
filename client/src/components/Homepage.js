@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form/form'
+import Form from './form'
 import Posts from './Posts/posts'
 import Login from './Auth/login'
 import Navbar from './navbar'
